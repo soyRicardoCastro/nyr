@@ -25,7 +25,7 @@ import GoogleCalendar from '../logos/GoogleCalendar.astro';
           <div class="flex items-center gap-4">
             <Button
               client:load
-              className="bg-primary cta text-stone-100 px-4 py-6"
+              className="bg-primary cta text-stone-100 px-4 py-6 text-sm"
               href="https://www.addevent.com/event/Fs18690643"
               referrerPolicy="no-referrer"
               target="_blank"
@@ -37,12 +37,14 @@ import GoogleCalendar from '../logos/GoogleCalendar.astro';
               </span>
             </Button>
 
-            <a href="/invitacion.png" class="hover:underline" download> Descargar invitacion</a>
+            <a href="/invitacion.png" class="text-sm hover:underline" download>
+              Descargar invitacion</a
+            >
           </div>
         </div>
 
         <div
-          class="justify-center4 relative z-30 mt-6 flex w-full items-center lg:mt-0 lg:max-w-[60%]"
+          class="relative z-30 mt-36 flex w-full items-center justify-center lg:mt-0 lg:max-w-[60%]"
         >
           <figure class="w-52">
             <img
@@ -77,7 +79,7 @@ import GoogleCalendar from '../logos/GoogleCalendar.astro';
   .cta {
     padding: 0.35em;
     padding-left: 1.2em;
-    font-size: 17px;
+    font-size: 15px;
     border-radius: 0.9em;
     letter-spacing: 0.03em;
     height: 2.8em;
@@ -114,7 +116,7 @@ import GoogleCalendar from '../logos/GoogleCalendar.astro';
   .cta:active .icon {
     transform: scale(0.95);
   }
-
+  /* 
   .hero-1,
   .hero-2,
   .hero-3 {
@@ -136,5 +138,5 @@ import GoogleCalendar from '../logos/GoogleCalendar.astro';
   #inicio.visible .hero-3 {
     transform: translateY(0) translateX(0) scale(1);
     opacity: 1;
-  }
+  } */
 </style>
