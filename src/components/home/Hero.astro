@@ -25,16 +25,13 @@ import GoogleCalendar from '../logos/GoogleCalendar.astro';
           <div class="flex items-center gap-4">
             <Button
               client:load
-              className="bg-primary cta text-stone-100 px-4 py-6 text-sm"
+              className="bg-primary dark:bg-yellow-100 dark:text-stone-950 font-bold text-stone-100 text-sm"
               href="https://www.addevent.com/event/Fs18690643"
               referrerPolicy="no-referrer"
               target="_blank"
               as="a"
             >
               Añadir al Calendario
-              <span class="icon">
-                <GoogleCalendar size={24} />
-              </span>
             </Button>
 
             <a href="/invitacion.png" class="text-sm hover:underline" download>
@@ -56,7 +53,7 @@ import GoogleCalendar from '../logos/GoogleCalendar.astro';
 
           <figure class="w-96">
             <img
-              class="hero-2 relative top-32 z-30 h-auto w-full border-8 border-primary dark:border-yellow-100 lg:top-0 lg:z-10"
+              class="hero-2 relative top-48 z-50 h-auto w-full border-8 border-primary dark:border-yellow-100 md:top-32 md:z-30 lg:top-0 lg:z-10"
               src={hero1.src}
               alt="Hero picture"
             />
