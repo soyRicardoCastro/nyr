@@ -1,0 +1,114 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import Footer from '../components/layout/Footer.astro';
+import Header from '../components/layout/Header.astro';
+import { Provider as WrapBalancerProvider } from 'react-wrap-balancer';
+
+interface Props {
+  description: string;
+  title: string;
+}
+
+const { description, title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" x-cloak x-data :class="{ 'dark': $store.theme.isDark }">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <ViewTransitions />
+  </head>
+  <body
+    class="overflow-x-hidden bg-[#fdfdfd] text-stone-950 antialiased transition dark:bg-stone-950 dark:text-yellow-100"
+  >
+    <WrapBalancerProvider>
+      <Header />
+      <main>
+        <slot />
+      </main>
+      <Footer />
+    </WrapBalancerProvider>
+    <style is:global>
+      [x-cloak] {
+        display: none !important;
+      }
+
+      @font-face {
+        font-family: 'Brittany';
+        src: url('../assets/fonts/Brittany.woff2') format('woff2');
+      }
+
+      @font-face {
+        font-family: 'Poppins';
+        src: url('../assets/fonts/Poppins.woff2') format('woff2');
+      }
+
+      :root {
+        font-display: swap;
+      }
+
+      .animate {
+        @apply opacity-0 delay-300 transition-transform-opacity;
+      }
+
+      .visible {
+        @apply opacity-100;
+      }
+    </style>
+    <script>
+      import Alpine from 'alpinejs';
+      import collapse from '@alpinejs/collapse';
+
+      Alpine.plugin(collapse);
+
+      Alpine.store('theme', {
+        init() {
+          this.isDark = (() => {
+            if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+              return localStorage.getItem('theme') === 'dark';
+            }
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+              return true;
+            }
+            return false;
+          })();
+        },
+
+        isDark: false,
+
+        toggle() {
+          this.isDark = !this.isDark;
+          localStorage.setItem('theme', this.isDark ? 'dark' : 'light');
+        },
+      });
+
+      window.Alpine = Alpine;
+      Alpine.start();
+    </script>
+    <script>
+      const animations = [...document.querySelectorAll('.animate')];
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            return entry.target.classList.add('visible');
+          }
+
+          if (!entry.isIntersecting) {
+            return entry.target.classList.remove('visible');
+          }
+        });
+      });
+
+      animations.forEach((animation) => observer.observe(animation));
+    </script>
+  </body>
+</html>

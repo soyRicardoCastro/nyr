@@ -1,0 +1,63 @@
+---
+import { Button, Chip } from '@nextui-org/react';
+import Counter from './Counter.astro';
+---
+
+<section class="animate mt-56" id="boda">
+  <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="flex flex-col items-center justify-center gap-8">
+      <Chip client:visible variant="flat" color="warning" size="lg">
+        Invitacion y detalles para
+      </Chip>
+      <h3 class="font-serif text-6xl font-medium">Nuestra Boda</h3>
+
+      <p class="text-center">
+        Queremos compartir con Ustedes la felicidad de nuestra unión celebrando juntos un almuerzo
+      </p>
+    </div>
+
+    <div class="mt-20 flex flex-col items-center justify-center gap-16 lg:flex-row lg:items-start">
+      <div class="flex flex-col items-center justify-between gap-6">
+        <span class="h-1 w-20 rounded-full bg-primary dark:bg-yellow-100"></span>
+        <p class="text-center font-serif text-3xl font-semibold">Dia</p>
+        <p class="-mt-2 text-center text-lg">
+          <strong class="font-bold">29</strong> de Septiembre del 2023
+        </p>
+      </div>
+
+      <div class="flex flex-col items-center justify-between gap-6">
+        <span class="h-1 w-20 rounded-full bg-primary dark:bg-yellow-100"></span>
+        <p class="text-center font-serif text-3xl font-semibold">Hora</p>
+        <p class="-mt-2 text-center text-lg font-bold">11:30 AM - 12:30 AM</p>
+      </div>
+
+      <div class="flex flex-col items-center justify-between gap-6">
+        <span class="h-1 w-20 rounded-full bg-primary dark:bg-yellow-100"></span>
+        <p class="text-center font-serif text-3xl font-semibold">Lugar</p>
+        <p class="-mt-2 text-center text-lg">
+          Casa de la Familia Porte,<br /> Bajos de Guataparo,<br /> Tocuyito
+        </p>
+      </div>
+    </div>
+    <div class="mx-auto mt-12 flex max-w-max items-center">
+      <Button
+        client:visible
+        className="bg-primary dark:bg-yellow-100 font-bold dark:text-stone-950"
+        as="a"
+        target="_blank"
+        referrerPolicy="no-referrer"
+        href="https://api.whatsapp.com/send/?phone=%2B584128926187&text=Hola!,%20estaria%20encantad@%20de%20celebrar%20con%20ustedes%20su%20boda,%20soy%20____,%20me%20encantaria%20recibir%20respuesta%20sobre%20mi%20asistencia&type=phone_number&app_absent=0"
+      >
+        Confirmar asistencia
+      </Button>
+    </div>
+  </div>
+
+  <!-- <div class="mt-20 flex flex-col">
+    <div>
+      <h5 class="font-serif text-4xl">Natalia</h5>
+    </div>
+  </div> -->
+</section>
+
+<Counter />
