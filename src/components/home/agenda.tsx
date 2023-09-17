@@ -60,7 +60,10 @@ export const Agenda = () => {
   const timezone = useGetTimezone();
 
   return (
-    <section id="agenda" className="flex flex-col flex-wrap items-center justify-center pt-48">
+    <section
+      id="agenda"
+      className="animate flex flex-col flex-wrap items-center justify-center pt-48"
+    >
       <h2 className="text-center font-serif text-6xl">Agenda</h2>
       <p className="mt-4 max-w-xl text-center">Mira los detalles de como sera el dia</p>
 

@@ -55,13 +55,16 @@ const { description, title } = Astro.props;
         font-display: swap;
       }
 
-      /* .animate {
+      .animate {
+        transform: scale(0.3);
+
         @apply opacity-0 delay-300 transition-transform-opacity;
       }
 
       .visible {
+        transform: scale(1);
         @apply opacity-100;
-      } */
+      }
     </style>
     <script>
       import Alpine from 'alpinejs';
@@ -93,7 +96,7 @@ const { description, title } = Astro.props;
       window.Alpine = Alpine;
       Alpine.start();
     </script>
-    <!-- <script>
+    <script>
       const animations = [...document.querySelectorAll('.animate')];
 
       const observer = new IntersectionObserver((entries) => {
@@ -109,6 +112,6 @@ const { description, title } = Astro.props;
       });
 
       animations.forEach((animation) => observer.observe(animation));
-    </script> -->
+    </script>
   </body>
 </html>

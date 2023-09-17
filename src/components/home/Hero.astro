@@ -4,8 +4,6 @@ import { Button } from '@nextui-org/react';
 import hero1 from '../../assets/images/hero-1.jpg';
 import hero2 from '../../assets/images/hero-2.jpg';
 import hero3 from '../../assets/images/hero-3.jpg';
-
-import GoogleCalendar from '../logos/GoogleCalendar.astro';
 ---
 
 <section class="animate my-16 sm:my-20" id="inicio">
@@ -25,7 +23,7 @@ import GoogleCalendar from '../logos/GoogleCalendar.astro';
           <div class="flex items-center gap-4">
             <Button
               client:load
-              className="bg-primary dark:bg-yellow-100 dark:text-stone-950 font-bold text-stone-100 text-sm"
+              className="bg-primary dark:bg-yellow-100 dark:text-stone-950 font-bold  text-sm"
               href="https://www.addevent.com/event/Fs18690643"
               referrerPolicy="no-referrer"
               target="_blank"
@@ -113,27 +111,18 @@ import GoogleCalendar from '../logos/GoogleCalendar.astro';
   .cta:active .icon {
     transform: scale(0.95);
   }
-  /* 
+
   .hero-1,
   .hero-2,
   .hero-3 {
     opacity: 0;
-    transition: ease 1000ms all;
-  }
-
-  .hero-1 {
-    transform: translateX(-1000px);
-  }
-  .hero-2 {
     transform: scale(0.3);
+    transition: ease 1000ms transform;
   }
-  .hero-3 {
-    transform: translateX(1000px);
-  }
-  #inicio.visible .hero-2,
   #inicio.visible .hero-1,
+  #inicio.visible .hero-2,
   #inicio.visible .hero-3 {
-    transform: translateY(0) translateX(0) scale(1);
+    transform: scale(1);
     opacity: 1;
-  } */
+  }
 </style>
