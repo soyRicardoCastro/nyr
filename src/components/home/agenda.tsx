@@ -99,12 +99,6 @@ export const Agenda = () => {
                 title="Almuerzo Familiar"
                 description="Disfrutaremos con nuestra familia y amigos."
               />
-              <AgendaItem
-                timestamp={1694624400000}
-                duration={480 * 60 * 1000}
-                title="Fiesta de Celebracion"
-                description="Celebraremos hasta que el cuerpo aguante."
-              />
             </div>
           </div>
         </div>
